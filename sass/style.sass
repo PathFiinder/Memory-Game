@@ -1,0 +1,45 @@
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+
+.wrapper
+    max-width: 1440px
+    min-width: 320px
+    margin: 0 auto
+
+
+.main-game
+    display: flex
+    flex-direction: row
+    height: 780px
+    width: 1200px
+    flex-wrap: wrap
+    margin: 0 auto
+    position: relative
+    &__single-item
+        flex-basis: calc(200px - 20px)
+        height: 175px
+        margin: 10px
+        border: 1px solid black
+        border-radius: 5%
+        transform-style: preserve-3d
+        transition: all 0.5s ease
+        &--active
+            transform: rotateY(180deg)
+        .item__background-img
+            height: 100%
+            width: 100%
+            border-radius: 5%
+            backface-visibility: hidden
+        .item__main-img
+            height: 100%
+            width: 100%
+            position: absolute
+            top: 0
+            left: 0    
+            border-radius: 5%
+            backface-visibility: hidden
+            transform: rotateY(180deg)
+            

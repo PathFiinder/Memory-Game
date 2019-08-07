@@ -1,1 +1,68 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  max-width: 1440px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
+.main-game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 780px;
+  width: 1200px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main-game__single-item {
+  -ms-flex-preferred-size: calc(200px - 20px);
+      flex-basis: calc(200px - 20px);
+  height: 175px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 5%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.main-game__single-item--active {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.main-game__single-item .item__background-img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.main-game__single-item .item__main-img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+/*# sourceMappingURL=style.css.map */
