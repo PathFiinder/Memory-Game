@@ -8,16 +8,18 @@
 .wrapper {
   max-width: 1440px;
   min-width: 320px;
+  min-height: 100vh;
   margin: 0 auto;
   font-family: 'Playfair Display', serif;
-  background-image: url("https://pathfiinder.github.io/Memory-Game/images/main-background-image.jpg");
+  background-color: #06a8f9;
 }
 
 .menu {
   text-align: center;
-  margin: 10px auto;
+  margin: 0 auto;
   width: 90%;
   max-width: 1000px;
+  padding-top: 10px;
 }
 
 .menu__title {
@@ -38,12 +40,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 100px;
+  height: 50;
   overflow: hidden;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 5px;
   border: 1px solid black;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 @media (min-width: 568px) {
@@ -55,27 +59,7 @@
 .menu__container .container__single, .menu .container .container__single {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
-  height: 50%;
-}
-
-@media (min-width: 568px) {
-  .menu__container .container__single, .menu .container .container__single {
-    -ms-flex-preferred-size: 33.33%;
-        flex-basis: 33.33%;
-    height: 100%;
-  }
-}
-
-.menu__container .container__single--last, .menu .container .container__single--last {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
-
-@media (min-width: 568px) {
-  .menu__container .container__single--last, .menu .container .container__single--last {
-    -ms-flex-preferred-size: 33.33%;
-        flex-basis: 33.33%;
-  }
+  height: 100%;
 }
 
 .menu__container .container__single .container__title, .menu .container .container__single .container__title {
@@ -85,6 +69,32 @@
 
 .menu__container .container__single .container__content, .menu .container .container__single .container__content {
   font-size: 16px;
+}
+
+.menu__button {
+  height: 30px;
+  width: 100px;
+  margin: 10px auto;
+  color: #494949;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 0;
+  border: 2px solid #494949;
+  display: inline-block;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+
+.menu__button:hover {
+  color: #ffffff;
+  background: #f6b93b;
+  border-color: #f6b93b;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
 }
 
 .main-game {
@@ -129,7 +139,7 @@
       flex-basis: calc(100% / 4 - 10px);
   height: calc(100% / 6 - 10px);
   margin: 5px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5%;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;

@@ -9,15 +9,16 @@
 .wrapper
     max-width: 1440px
     min-width: 320px
+    min-height: 100vh
     margin: 0 auto
     font-family: 'Playfair Display', serif
-    background-image: url("https://pathfiinder.github.io/Memory-Game/images/main-background-image.jpg");
-
+    background-color: rgba(6, 168, 249, 1)
 .menu
     text-align: center
-    margin: 10px auto
+    margin: 0 auto
     width: 90%
     max-width: 1000px
+    padding-top: 10px
     &__title
         font-size: 28px
         margin-bottom: 5px
@@ -27,29 +28,45 @@
     &__container,.container
         display: flex
         flex-direction: row
-        height: 100px
+        height: 50
         overflow: hidden
         flex-wrap: wrap
         margin-top: 5px
         border: 1px solid black
+        max-width: 500px
+        margin: 0 auto
         @include mediaQ(568px)
             height: 60px
         .container__single
             flex-basis: 50%
-            height: 50%
-            @include mediaQ(568px)
-                flex-basis: 33.33%
-                height: 100%
-            &--last
-                flex-basis: 100%
-                @include mediaQ(568px)
-                    flex-basis: 33.33%
+            height: 100%
             .container__title
                 font-size: 20px
                 font-weight: normal
             .container__content
                 font-size: 16px
-                
+    &__button
+        height: 30px
+        width: 100px
+        margin: 10px auto
+        color: #494949
+        text-transform: uppercase
+        text-decoration: none
+        background: #ffffff
+        padding: 0
+        border: 2px solid #494949
+        display: inline-block
+        transition: all 0.4s ease 0s
+        font-size: 12px
+        font-weight: bold
+        letter-spacing: 0.2px
+        &:hover 
+            color: #ffffff
+            background: #f6b93b
+            border-color: #f6b93b
+            transition: all 0.4s ease 0s
+            
+
 .main-game
     display: flex
     flex-direction: row
@@ -71,7 +88,7 @@
         flex-basis: calc(100% / 4 - 10px)
         height: calc(100% / 6 - 10px)
         margin: 5px
-        border: 1px solid black
+        border: 2px solid black
         border-radius: 5%
         transform-style: preserve-3d
         transition: all 0.5s ease
