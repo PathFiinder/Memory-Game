@@ -75,8 +75,9 @@ class Game {
 
 
     chooseCard() {
+        var intervalID = 0;
         let count = 0;
-
+        let tempArrayChoosenCards = [];
         this.cardsWrapper.addEventListener('click', (event) => {
             if (event.target.dataset.id) {
 
@@ -88,21 +89,32 @@ class Game {
 
                 if (count < 2) {
                     document.querySelector(`[data-idm = "${event.target.dataset.id}"]`).classList.add('main-game__single-item--active');
-                    let tempName = event.target.dataset.name;
-                    this.selectedCards.push(tempName);
-                    if (false) {
-                        
 
-                       
-
-                    } else {
-                        
+                    tempArrayChoosenCards.push(event.target.dataset.name)
+                    console.log(tempArrayChoosenCards)
+                    if (tempArrayChoosenCards.length != 2) {
+                        console.log("op2")
+                        intervalID = setInterval(() => {
+                            document.querySelector(`[data-idm = "${event.target.dataset.id}"]`).classList.remove('main-game__single-item--active')
+                        }, 6000);
+                        console.log(intervalID)
+                    } else if (tempArrayChoosenCards.length == 2 && tempArrayChoosenCards[0] !== tempArrayChoosenCards[1]) {
+                        console.log("op1")
                         setInterval(() => {
                             document.querySelector(`[data-idm = "${event.target.dataset.id}"]`).classList.remove('main-game__single-item--active')
-                        }, 4000);
+                        }, 6000);
+                        tempArrayChoosenCards = [];
+
+                    }
+                    if (tempArrayChoosenCards.length == 2 && tempArrayChoosenCards[0] === tempArrayChoosenCards[1]) {
+                        tempArrayChoosenCards = [];
+                        console.log("ok");
+                        console.log(intervalID)
+                        window.clearInterval(intervalID);
+                        
                     }
                     count = 0;
-                    tempName = "";
+
                 } else if (count >= 2) {
                     count = 0;
                 }
