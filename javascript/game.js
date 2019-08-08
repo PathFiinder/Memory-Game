@@ -93,7 +93,8 @@ class Game {
                     tempArrayChoosenCards.push(event.target.dataset.name)
                     console.log(tempArrayChoosenCards)
                     if (tempArrayChoosenCards.length != 2) {
-                        console.log("op2")
+                        console.log("op2");
+                        console.log("option 2")
                         intervalID = setInterval(() => {
                             document.querySelector(`[data-idm = "${event.target.dataset.id}"]`).classList.remove('main-game__single-item--active')
                         }, 6000);
