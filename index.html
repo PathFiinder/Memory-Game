@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Memory Game using JavaScript</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
    <div class="wrapper">
        <div class="menu">
            <h1 class="menu__title">Memory Game</h1>
-           <p class="menu__intruction">Choose two same card</p>
+           <p class="menu__instruction">Find two same card</p>
            <div class="menu__container container">
                 <div class="container__single">
-                    <h2 class="container__title">Points</h2>
-                     <p class="container__content" data-menu="points">0</p>   
+                    <h2 class="container__title">Moves</h2>
+                     <p class="container__content" data-menu="moves">0</p>   
                 </div>
                 <div class="container__single">
-                    <h2 class="container__title">Moves</h2>
-                    <p class="container__content" data-menu="moves">0</p>
+                    <h2 class="container__title">Finded Cards</h2>
+                    <p class="container__content" data-menu="moves"><span class="container__content--current-value">0</span>/<span class="conatiner__content--max-amount">0</span></p>
+                </div>
+                <div class="container__single container__single--last">
+                    <h2 class="container__title">Time</h2>
+                    <p class="container__content" data-menu="time">0</p>
                 </div>
            </div>
        </div>

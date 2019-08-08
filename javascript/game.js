@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.cardsWrapper = document.querySelector('.main-game');
         this.cardNameArray = ['bootstrap', 'css', 'git', 'html5', 'javascript', 'jquery', 'mongo', 'node', 'react', 'redux', 'sass', 'webpack'];
-        this.listOfCardWithPairs = ([]);
+        this.listOfCards = ([]);
         this.selectedCards = [];
         this.drawBoard();
         this.chooseCard();
@@ -30,7 +30,7 @@ class Game {
                 while (checkIfOk == false) {
                     let randomCard = this.cardNameArray.random();
                     countHowMany = 0;
-                    [...this.listOfCardWithPairs].forEach(element => {
+                    [...this.listOfCards].forEach(element => {
                         if (element.name === randomCard) {
                             countHowMany++;
                         }
@@ -45,7 +45,7 @@ class Game {
                         });
                         this.cardNameArray.splice(id, 1);
                     } else {
-                        this.listOfCardWithPairs.push({
+                        this.listOfCards.push({
                             name: randomCard
                         });
 
@@ -80,44 +80,39 @@ class Game {
         let tempArrayChoosenCards = [];
         this.cardsWrapper.addEventListener('click', (event) => {
             if (event.target.dataset.id) {
-
-                [...document.querySelectorAll('.main-game__single-item')].forEach(ele => {
-                    if (ele.classList.contains('main-game__single-item--active')) {
-                        count++;
-                    }
-                });
-
-                if (count < 2) {
+                count++;
+                if (count <= 2) {
                     document.querySelector(`[data-idm = "${event.target.dataset.id}"]`).classList.add('main-game__single-item--active');
+                    tempArrayChoosenCards.push({
+                        name: event.target.dataset.name,
+                        id: event.target.dataset.id
+                    });
 
-                    tempArrayChoosenCards.push(event.target.dataset.name)
-                    console.log(tempArrayChoosenCards)
-                    if (tempArrayChoosenCards.length != 2) {
-                        console.log("op2");
-                        console.log("option 2")
-                        intervalID = setInterval(() => {
-                            document.querySelector(`[data-idm = "${event.target.dataset.id}"]`).classList.remove('main-game__single-item--active')
-                        }, 6000);
-                        console.log(intervalID)
-                    } else if (tempArrayChoosenCards.length == 2 && tempArrayChoosenCards[0] !== tempArrayChoosenCards[1]) {
-                        console.log("op1")
-                        setInterval(() => {
-                            document.querySelector(`[data-idm = "${event.target.dataset.id}"]`).classList.remove('main-game__single-item--active')
-                        }, 6000);
-                        tempArrayChoosenCards = [];
+                    if (tempArrayChoosenCards.length == 2) {
+                        const firstCard = tempArrayChoosenCards[0].id;
+                        const secondCard = tempArrayChoosenCards[1].id
+                        if (tempArrayChoosenCards[0].name === tempArrayChoosenCards[1].name) {
+                            tempArrayChoosenCards.forEach( element => {
+                                this.selectedCards.push({name: element.name, id: element.id});
+                                document.querySelector(`[data-idm = "${element.id}"]`).classList.add('main-game__single-item--green');
+                            })
+                            tempArrayChoosenCards = [];
+                            count = 0;
+                        } else {
+                            intervalID = setInterval(() => {
+                                document.querySelector(`[data-idm = "${firstCard}"]`).classList.remove('main-game__single-item--active');
+                                document.querySelector(`[data-idm = "${secondCard}"]`).classList.remove('main-game__single-item--active');
+                                tempArrayChoosenCards = [];
+                                count = 0;
+                            }, 6000);
+                        }
 
-                    }
-                    if (tempArrayChoosenCards.length == 2 && tempArrayChoosenCards[0] === tempArrayChoosenCards[1]) {
-                        tempArrayChoosenCards = [];
-                        console.log("ok");
-                        console.log(intervalID)
+                    } else {
                         window.clearInterval(intervalID);
-                        
+                        return;
                     }
-                    count = 0;
-
-                } else if (count >= 2) {
-                    count = 0;
+                } else if (count > 3) {
+                    return;
                 }
             }
         })
