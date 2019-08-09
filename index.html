@@ -1,33 +1,61 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="author" name="Krystian Konecki">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
     <title>Memory Game using JavaScript</title>
+    <script src="https://kit.fontawesome.com/56327ab928.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-   <div class="wrapper">
-       <div class="menu">
-           <h1 class="menu__title">Memory Game</h1>
-           <p class="menu__instruction">Find two same card</p>
-           <div class="menu__container container">
+    <div class="wrapper">
+        <div class="menu">
+            <h1 class="menu__title">Memory Game</h1>
+            <p class="menu__instruction">Find two same card</p>
+            <div class="menu__container container">
                 <div class="container__single">
                     <h2 class="container__title">Moves</h2>
-                     <p class="container__content" data-menu="moves">0</p>   
+                    <p class="container__content" data-menu="moves">0</p>
                 </div>
                 <div class="container__single">
                     <h2 class="container__title">Finded Cards</h2>
-                    <p class="container__content" data-menu="moves"><span class="container__content--current-value">0</span>/<span class="container__content--max-amount">0</span></p>
+                    <p class="container__content" data-menu="moves"><span
+                            class="container__content--current-value">0</span>/<span
+                            class="container__content--max-amount">0</span></p>
                 </div>
-           </div>
-           <button class="menu__button">Reset</button>
-       </div>
-       <div class="main-game">
-       </div>
-   </div>
+                <div class="container__single container__single--last">
+                    <h2 class="container__title">Time</h2>
+                    <p class="container__content" data-menu="time"><span
+                            class="container__content--time-minute">0</span>:<span
+                            class="container__content--time-sec">00</span></p>
+                </div>
+            </div>
+            <button class="button menu__button">Reset</button>
+        </div>
+        <div class="main-game">
+        </div>
+        <div class="game-result">
+            <div class="game-result__container">
+                <i class="game-result__icon far fa-times-circle"></i>
+                <h2 class="game-result__description">You have ended the game in:</h2>
+                <p class="game-result__moves"><span class="game-result__moves--counter">0</span> moves</p>
+                <p class="game-result__time"><span class="game-result__time--minutes">0</span> minutes and <span
+                        class="game-result__time--seconds">0</span> seconds</p>
+                <img src="images/smile.png" alt="Smile icon" class="game-result__img">
+                <button class="button game-result__button">Reset</button>
+            </div>
+        </div>
+    </div>
     <script src="javascript/main.js" type="module"></script>
 </body>
+
 </html>

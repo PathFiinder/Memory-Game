@@ -1,22 +1,30 @@
 @import "_mixins.sass"
-    
+@import "_buttons.sass"
+
 *
     box-sizing: border-box
     margin: 0
     padding: 0
 
 
+
+    
 .wrapper
-    max-width: 1440px
+    max-width: 1500px
     min-width: 320px
     min-height: 100vh
     margin: 0 auto
     font-family: 'Playfair Display', serif
     background-color: rgba(6, 168, 249, 1)
+    position: relative
+    @media (min-wdith: 768px) and (min-height: 1024px) 
+        max-height: 100vh
+
 .menu
     text-align: center
     margin: 0 auto
     width: 90%
+    height: 243px
     max-width: 1000px
     padding-top: 10px
     &__title
@@ -28,7 +36,7 @@
     &__container,.container
         display: flex
         flex-direction: row
-        height: 50
+        height: 100px
         overflow: hidden
         flex-wrap: wrap
         margin-top: 5px
@@ -39,32 +47,19 @@
             height: 60px
         .container__single
             flex-basis: 50%
-            height: 100%
+            height: 50%
+            @include mediaQ(568px)
+                flex-basis: 33.33%
+            &--last
+                flex-basis: 100%
+                @include mediaQ(568px)
+                    flex-basis: 33.33%
             .container__title
                 font-size: 20px
                 font-weight: normal
             .container__content
                 font-size: 16px
-    &__button
-        height: 30px
-        width: 100px
-        margin: 10px auto
-        color: #494949
-        text-transform: uppercase
-        text-decoration: none
-        background: #ffffff
-        padding: 0
-        border: 2px solid #494949
-        display: inline-block
-        transition: all 0.4s ease 0s
-        font-size: 12px
-        font-weight: bold
-        letter-spacing: 0.2px
-        &:hover 
-            color: #ffffff
-            background: #f6b93b
-            border-color: #f6b93b
-            transition: all 0.4s ease 0s
+        
             
 
 .main-game
@@ -78,12 +73,12 @@
     position: relative
     overflow: hidden
     @include mediaQ(768px)
-        margin-top: 30px
+        margin-top: 10px
     @media (min-width: 768px) and (min-height: 1024px)
         height: 600px
         margin-top: 50px
-    @media (min-width: 1024px)
-        height: 700px
+    @media (min-width: 1024px) and (min-height: 1024px)
+        height: calc(100vh - 243px - 50px)
     &__single-item
         flex-basis: calc(100% / 4 - 10px)
         height: calc(100% / 6 - 10px)
@@ -115,5 +110,96 @@
             transform: rotateY(180deg)
             margin-left: calc(5% / 2)
             margin-top: calc(5% / 2)
-            
-            
+
+.game-result
+    display: none
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background-color: rgba(0,0,0,0.5)
+    &--active
+        display: block
+    &__container
+        display: none
+        position: absolute
+        height: 50%
+        width: 80%
+        background-color: rgb(255,250,250)
+        border: 8px double black
+        top: 40%
+        left: 50%
+        transform: translate(-50%,-50%)
+        text-align: center
+        @include mediaQ(568px)
+            height: 260px
+            top: 25%
+        @include mediaQ(768px)
+            height: 400px
+            top: 40%
+        @media (min-width: 812px) and (min-height: 375px)
+            height: 250px 
+            top: 30%
+        @include mediaQ(1024px)
+            height: 500px
+            top: 50%
+        &--active
+            display: block
+        .game-result__icon
+            color: white
+            height: 30px
+            width: 30px
+            font-size: 24px
+            text-align: center
+            line-height: 30px
+            position: absolute   
+            top: -40px
+            right: -30px 
+        .game-result__description
+            padding-top: 20px
+            font-size: 24px
+            width: 90%
+            margin: 0 auto 10px auto
+            @include mediaQ(1024px)
+                font-size: 34px
+        .game-result__moves    
+            font-size: 18px
+            margin-bottom: 10px
+            @include mediaQ(1024px)
+                font-size: 24px
+            &--counter
+                font-weight: bold
+        .game-result__time
+            font-size: 18px
+            @include mediaQ(1024px)
+                font-size: 24px
+            &--minutes,&--seconds
+                font-weight: bold
+        .game-result__img
+            height: 100px
+            width: 100px
+            margin-top: 30px
+            @include mediaQ(568px)
+                height: 60px
+                width: 60px
+                margin-top: 10px
+            @include mediaQ(768px)
+                height: 150px
+                width: 150px
+                margin-top: 30px
+            @media (min-width: 812px) and (min-height: 375px)
+                height: 60px
+                width: 60px
+                margin-top: 5px
+            @include mediaQ(1024px)
+                height: 200px
+                width: 200px
+                margin-top: 30px
+        .game-result__button
+            position: absolute
+            bottom: 10px
+            left: 50%
+            transform: translateX(-50%)
+            @include mediaQ(1024px)
+                bottom: 30px
