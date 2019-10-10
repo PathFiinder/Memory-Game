@@ -1,6 +1,6 @@
 # Memory-Game
 
-Memory game created using JavaScript
+Simple memory game created using JavaScript
 
 Tech used: 
 - HTML5
